@@ -1,0 +1,40 @@
+<soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
+  <soap:Body>
+    <GetListItems xmlns='http://schemas.microsoft.com/sharepoint/soap/'>
+      <listName>T_CARDAPIO_NEW</listName>
+      <viewName/>
+      <query>
+        <Query>
+          <ViewFields>
+            <FieldRef Name='CARDAPIO_PRATO' />
+            <FieldRef Name='CARDAPIO_PRATO_x003a_DSC_PRATO' />
+            <FieldRef Name='CARDAPIO_PRATO_x003a_DSC_UNID' />
+            <FieldRef Name='CARDAPIO_PRATO_x003a_KCAL' />
+            <FieldRef Name='CARDAPIO_TIPO' />
+            <FieldRef Name='CARDAPIO_TIPO_x003a_ORDEM' />
+          </ViewFields>
+          <Where>
+            <And>
+              <Eq>
+                <FieldRef Name='SITE' />
+                <Value Type='Lookup'>SJK</Value>
+              </Eq>
+              <Eq>
+                <FieldRef Name='DATA' />
+                <Value IncludeTimeValue='FALSE' Type='DateTime'>2016-06-23</Value>
+              </Eq>
+            </And>
+          </Where>
+          <OrderBy>
+            <FieldRef Name='CARDAPIO_TIPO_x003a_ORDEM' Ascending='True' />
+          </OrderBy>
+        </Query>
+      </query>
+      <viewFields/>
+      <rowLimit>999</rowLimit>
+      <queryOptions>
+        <QueryOptions/>
+      </queryOptions>
+    </GetListItems>
+  </soap:Body>
+</soap:Envelope>
